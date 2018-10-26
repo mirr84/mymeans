@@ -1,21 +1,24 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 import {connector} from "../../store/utils/connector";
-import lifecycle from 'react-pure-lifecycle';
+import windowSize from "react-window-size";
 
-const methods = {
+
+class App extends Component {
+
     componentDidMount(props) {
     }
+
+    render() {
+        return (
+            <p>
+                Screen width is: {this.props.windowWidth}
+                <br />
+                Screen height is: {this.props.windowHeight}
+            </p>
+        );
+    }
+
 }
 
-const App = ({state, dispatch}) => {
-    return (
-        <div>
-
-            111
-
-        </div>
-    );
-}
-
-export default connector(lifecycle(methods)(App));
+export default connector(windowSize(App));
