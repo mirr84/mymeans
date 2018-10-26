@@ -1,24 +1,26 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import {connector} from "../../store/utils/connector";
-import windowSize from "react-window-size";
+import lifecycle from 'react-pure-lifecycle';
+import WindowSizeListener from 'react-window-size-listener';
+import Test from "../test";
 
-
-class App extends Component {
-
+const methods = {
     componentDidMount(props) {
     }
+}
 
-    render() {
-        return (
-            <p>
-                Screen width is: {this.props.windowWidth}
-                <br />
-                Screen height is: {this.props.windowHeight}
-            </p>
-        );
-    }
+const App = ({state, dispatch}) => {
+
+    return (
+        <div>
+            <WindowSizeListener onResize={ windowSize => dispatch.setter('commonReducer', {windowWidth: windowSize.windowWidth, windowHeight: windowSize.windowHeight}) }/>
+
+            <Test />
+
+        </div>
+    );
 
 }
 
-export default connector(windowSize(App));
+export default connector(lifecycle(methods)(App));
