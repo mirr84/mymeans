@@ -3,7 +3,7 @@ import React from 'react';
 import {connector} from "../../store/utils/connector";
 import lifecycle from 'react-pure-lifecycle';
 import WindowSizeListener from 'react-window-size-listener';
-import Test from "../test";
+import Layout from "../Layout";
 
 const methods = {
     componentDidMount(props) {
@@ -11,16 +11,23 @@ const methods = {
 }
 
 const App = ({state, dispatch}) => {
-
     return (
         <div>
-            <WindowSizeListener onResize={ windowSize => dispatch.setter('commonReducer', {windowWidth: windowSize.windowWidth, windowHeight: windowSize.windowHeight}) }/>
+            <WindowSizeListener
+                onResize={windowSize => dispatch.setter('commonReducer', {
+                    windowWidth: windowSize.windowWidth,
+                    windowHeight: windowSize.windowHeight
+                })}
+            />
 
-            <Test />
+            <Layout head={'head'}
+                    footer={'footer'}
+                    content={'content'}
+                    left={'left'}
+                    right={'right'} />
 
         </div>
-    );
-
+    )
 }
 
 export default connector(lifecycle(methods)(App));
