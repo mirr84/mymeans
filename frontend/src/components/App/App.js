@@ -175,6 +175,12 @@ const App = ({state, dispatch}) => {
                             <MetisMenu content={content} activeLinkFromLocation />
                         </Sticky>
                     }
+                    right={
+                        <Sticky>
+                            <br/>
+                            <MetisMenu content={content} activeLinkFromLocation />
+                        </Sticky>
+                    }
             />
 
 
