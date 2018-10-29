@@ -13,17 +13,21 @@ const Layout = ({state, dispatch, head, footer, content, left, right}) => {
 
     return (
         <Container>
+
+            {
+                head? <Row> <Col>{head}</Col> </Row> : ''
+            }
+
             <Row>
-                <Col>{head}</Col>
+                { left?<Col lg={2}>{left}</Col>:''}
+                { content?<Col>{content}</Col>:''}
+                { right?<Col lg={2}>{right}</Col>:''}
             </Row>
-            <Row>
-                <Col>{left}</Col>
-                <Col>{content}</Col>
-                <Col>{right}</Col>
-            </Row>
-            <Row>
-                <Col>{footer}</Col>
-            </Row>
+
+            {
+                footer?<Row><Col>{footer}</Col></Row>:''
+            }
+
         </Container>
     );
 

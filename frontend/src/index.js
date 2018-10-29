@@ -15,6 +15,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 import 'react-bootstrap-typeahead/css/Typeahead.css';
 import '@trendmicro/react-sidenav/dist/react-sidenav.css';
 import 'react-datepicker/dist/react-datepicker.css';
+import 'react-metismenu/dist/react-metismenu-standart.min.css';
 import './index.css';
 
 import App from "./components/App/App";
