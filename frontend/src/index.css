@@ -1,12 +1,7 @@
-.list-group-item:first-child {
-    border-top-right-radius: 0px;
-    border-top-left-radius: 0px;
-}
-.list-group-item:last-child {
-    border-bottom-right-radius: 0px;
-    border-bottom-left-radius: 0px;
+.border-radius-0 {
+  border-radius: 0px!important;
 }
 
-.card {
-    border-radius: 0px;
+.box-shadow-0 {
+  box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.2) !important;
 }

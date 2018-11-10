@@ -2,15 +2,6 @@ import {ACTION_SETTER} from "../actions/actionConst";
 import {getLocalStorage} from "../utils/getLocalStorage";
 
 const initState = {
-
-    login: '',
-    password: '',
-    email: '',
-    token: '',
-
-    isAuth: false,
-    isProgressReg: false
-
 }
 
 export const loginReducer = (state = getLocalStorage('loginReducer', initState), action) => {
@@ -19,7 +10,7 @@ export const loginReducer = (state = getLocalStorage('loginReducer', initState),
 
     if (action.reducer === 'loginReducer') {
         if (action.type === ACTION_SETTER) {
-            newState = Object.assign(state, action.payload);
+            newState = Object.assign(newState, action.payload);
         }
     }
 
