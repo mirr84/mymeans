@@ -27,7 +27,7 @@ const MenuList = ({state, dispatch}) => {
                         <ListItem key={idx} button
                                   selected={state.menuReducer.select === item.code}
                                   disabled={state.menuReducer.loader}
-                                  onClick={() => dispatch.setter('menuReducer', {select: item.code, loader: state.menuReducer.select !== item.code})}>
+                                  onClick={() => dispatch.setter('menuReducer', {select: item.code, loader: false /*state.menuReducer.select !== item.code */ })}>
                             <ListItemIcon>
                                 {
                                     state.menuReducer.open ?
