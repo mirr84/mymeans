@@ -74,11 +74,31 @@ table.calendar td.summer {
 table.calendar td.autumn {
   background-color: rgba(246, 151, 60, 0.32);
 }
+
 table.calendar td.holidays {
   font-weight: bold;
   color: red;
   text-decoration: underline;
 }
+
+table.calendar td.minus-day {
+  font-weight: 700;
+  color: #fff;
+  background: red;
+}
+
+table.calendar td.plus-day {
+  font-weight: 700;
+  color: #fff;
+  background: green;
+}
+
+table.calendar td.netral-day {
+  font-weight: 700;
+  color: black;
+  background: #e4e1e1;
+}
+
 table.calendar td.weekend {
   font-style: italic;
   font-weight: bold;
