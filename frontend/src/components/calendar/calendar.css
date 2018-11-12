@@ -84,13 +84,13 @@ table.calendar td.holidays {
 table.calendar td.minus-day {
   font-weight: 700;
   color: #fff;
-  background: red;
+  background: #ff110075;
 }
 
 table.calendar td.plus-day {
   font-weight: 700;
   color: #fff;
-  background: green;
+  background: #008000ba;
 }
 
 table.calendar td.netral-day {
