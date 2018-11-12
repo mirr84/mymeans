@@ -24,6 +24,7 @@ import News from "./sections/News/News";
 import Reg from "./sections/Reg/Reg";
 import Auth from "./sections/Auth/Auth";
 import TestSection from "./sections/TestSection/TestSection";
+import Accounts from "./sections/Accounts/Accounts";
 
 const drawerWidth = 240;
 
@@ -135,7 +136,7 @@ const App = ({state, dispatch, classes}) => {
                         noWrap
                         className={classes.title}
                     >
-                        App
+                        Контроль расходов
                     </Typography>
                     <IconButton color="inherit">
                         <Badge badgeContent={123} color="secondary">
@@ -167,6 +168,7 @@ const App = ({state, dispatch, classes}) => {
                 { state.menuReducer.select === 'auth' ? <Auth /> : '' }
                 { state.menuReducer.select === 'reg' ? <Reg /> : '' }
                 { state.menuReducer.select === 'test' ? <TestSection /> : '' }
+                { state.menuReducer.select === 'accounts' ? <Accounts /> : '' }
 
             </main>
         </div>

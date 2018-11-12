@@ -18,6 +18,9 @@ const initState = {
         },
         {
             title: 'TestSection', auth: -1, code: 'test', icon: 'dashboard'
+        },
+        {
+            title: 'Счета', auth: 1, code: 'accounts', icon: 'dashboard'
         }
     ]
 }
