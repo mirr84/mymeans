@@ -18,6 +18,7 @@ import Paper from '@material-ui/core/Paper';
 
 const methods = {
     componentDidMount(props) {
+        props.dispatch.setter('menuReducer', {loader: false});
     }
 }
 

@@ -3,6 +3,8 @@ import React from 'react';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
+import Tooltip from "@material-ui/core/Tooltip/Tooltip";
+import Zoom from '@material-ui/core/Zoom';
 
 import Icon from '@material-ui/core/Icon';
 
@@ -22,9 +24,19 @@ const MenuList = ({state, dispatch}) => {
             {
                 state.menuReducer.menu.map(
                     (item, idx) => (
-                        <ListItem key={idx} button selected={state.menuReducer.select === item.code} onClick={() => dispatch.setter('menuReducer', {select: item.code})}>
+                        <ListItem key={idx} button
+                                  selected={state.menuReducer.select === item.code}
+                                  disabled={state.menuReducer.loader}
+                                  onClick={() => dispatch.setter('menuReducer', {select: item.code, loader: state.menuReducer.select !== item.code})}>
                             <ListItemIcon>
-                                <Icon>{item.icon}</Icon>
+                                {
+                                    state.menuReducer.open ?
+                                        <Icon>{item.icon}</Icon>
+                                        :
+                                        <Tooltip title={item.title} TransitionComponent={Zoom} placement="right">
+                                            <Icon>{item.icon}</Icon>
+                                        </Tooltip>
+                                }
                             </ListItemIcon>
                             <ListItemText primary={item.title} />
                         </ListItem>

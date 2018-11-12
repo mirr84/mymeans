@@ -13,6 +13,7 @@ import SimpleYearColendar from "../../components/calendar/SimpleYearColendar";
 
 const methods = {
     componentDidMount(props) {
+        props.dispatch.setter('menuReducer', {loader: false});
     }
 }
 

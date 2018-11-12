@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-import { withStyles } from '@material-ui/core/styles';
+import {withStyles} from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Drawer from '@material-ui/core/Drawer';
 import AppBar from '@material-ui/core/AppBar';
@@ -16,6 +16,8 @@ import Badge from '@material-ui/core/Badge';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
+
+import LoadingOverlay from 'react-loading-overlay';
 
 import {connector} from "./store/utils/connector";
 import MenuList from './MenuList/MenuList';
@@ -110,7 +112,7 @@ const App = ({state, dispatch, classes}) => {
     return (
         <div className={classes.root}>
 
-            <CssBaseline />
+            <CssBaseline/>
 
             <AppBar
                 position="absolute"
@@ -127,7 +129,7 @@ const App = ({state, dispatch, classes}) => {
                             state.menuReducer.open && classes.menuButtonHidden,
                         )}
                     >
-                        <MenuIcon />
+                        <MenuIcon/>
                     </IconButton>
                     <Typography
                         component="h1"
@@ -140,7 +142,7 @@ const App = ({state, dispatch, classes}) => {
                     </Typography>
                     <IconButton color="inherit">
                         <Badge badgeContent={123} color="secondary">
-                            <NotificationsIcon />
+                            <NotificationsIcon/>
                         </Badge>
                     </IconButton>
                 </Toolbar>
@@ -152,25 +154,34 @@ const App = ({state, dispatch, classes}) => {
             >
                 <div className={classes.toolbarIcon}>
                     <IconButton onClick={() => dispatch.setter('menuReducer', {open: false})}>
-                        <ChevronLeftIcon />
+                        <ChevronLeftIcon/>
                     </IconButton>
                 </div>
-                <Divider />
+                <Divider/>
                 <List>
-                    <MenuList />
+                    <MenuList/>
                 </List>
             </Drawer>
-            <main className={classes.content}>
+            <LoadingOverlay
+                active={state.menuReducer.loader}
+                background={'#f0f8ffbd'}
+                color={'black'}
+                style={ {width: '100%'} }
+                spinner
+                text='Получаем данные'
+            >
+                <main className={classes.content}>
 
-                <div className={classes.appBarSpacer} />
+                    <div className={classes.appBarSpacer}/>
 
-                { state.menuReducer.select === 'news' ? <News /> : '' }
-                { state.menuReducer.select === 'auth' ? <Auth /> : '' }
-                { state.menuReducer.select === 'reg' ? <Reg /> : '' }
-                { state.menuReducer.select === 'test' ? <TestSection /> : '' }
-                { state.menuReducer.select === 'accounts' ? <Accounts /> : '' }
+                    {state.menuReducer.select === 'news' ? <News/> : ''}
+                    {state.menuReducer.select === 'auth' ? <Auth/> : ''}
+                    {state.menuReducer.select === 'reg' ? <Reg/> : ''}
+                    {state.menuReducer.select === 'test' ? <TestSection/> : ''}
+                    {state.menuReducer.select === 'accounts' ? <Accounts/> : ''}
 
-            </main>
+                </main>
+            </LoadingOverlay>
         </div>
     );
 

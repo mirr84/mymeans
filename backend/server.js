@@ -37,10 +37,16 @@ app.get("/", function (req, res) {
     //     function (err, data) { ... }
     // )
 
-    db.driver.execQuery(
-        "SELECT user.??, user.?? FROM user WHERE user.?? LIKE ? AND user.?? > ?",
+    // req.driver.execQuery(
+    //     "SELECT user.??, user.?? FROM user WHERE user.?? LIKE ? AND user.?? > ?",
+    //     ['id', 'name', 'name', 'john', 'id', 55],
+    //     function (err, data) { ... }
+    // )
+
+    req.driver.execQuery(
+        "SELECT * FROM news",
         ['id', 'name', 'name', 'john', 'id', 55],
-        function (err, data) { ... }
+        function (err, data) { console.log(data) }
     )
 
     res.send('')

@@ -9,6 +9,7 @@ import lifecycle from "react-pure-lifecycle";
 
 const methods = {
     componentDidMount(props) {
+         props.dispatch.setter('menuReducer', {loader: false});
     }
 }
 

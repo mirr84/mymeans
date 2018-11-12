@@ -5,6 +5,7 @@ const initState = {
 
     open: false,
     select: 'news',
+    loader: false,
 
     menu: [
         {
