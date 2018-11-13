@@ -5,7 +5,6 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import Tooltip from "@material-ui/core/Tooltip/Tooltip";
 import Zoom from '@material-ui/core/Zoom';
-
 import Icon from '@material-ui/core/Icon';
 
 import {connector} from "../store/utils/connector";
